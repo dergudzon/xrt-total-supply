@@ -2,10 +2,10 @@ services:
   xrt-total-supply:
     build: .
     ports:
-      - "${APP_PORT:-3000}:${PORT:-3000}"
+      - "127.0.0.1:${APP_PORT:-3000}:3000"
     environment:
-      PORT: ${PORT:-3000}
-      HOST: ${HOST:-0.0.0.0}
+      PORT: 3000
+      HOST: 0.0.0.0
       ROBONOMICS_WS: ${ROBONOMICS_WS:-wss://polkadot.rpc.robonomics.network/}
       ASSET_HUB_WS: ${ASSET_HUB_WS:-wss://polkadot-asset-hub-rpc.polkadot.io}
       CACHE_TTL_MS: ${CACHE_TTL_MS:-10000}

@@ -44,7 +44,8 @@ cp .env.example .env   # adjust variables if needed
 docker compose up --build
 ```
 
-The app will be available at `http://localhost:${APP_PORT}` (default `3000`).
+The app will be available at `http://127.0.0.1:${APP_PORT}` (default `3000`).
+The port is bound to `127.0.0.1` only — it is not reachable from outside the host.
 
 To expose on a different host port without touching `PORT` inside the container:
 
