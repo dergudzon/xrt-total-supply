@@ -1,0 +1,19 @@
+{
+  "name": "xrt-total-supply",
+  "version": "1.0.0",
+  "description": "Express API returning total supply of Robonomics XRT (Robonomics parachain + Asset Hub)",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "BSD 3-Clause License",
+  "type": "module",
+  "dependencies": {
+    "@polkadot/api": "^16.5.6",
+    "express": "^5.2.1"
+  }
+}
