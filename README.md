@@ -28,11 +28,28 @@ independent.
 
 ## Running
 
+### Local
+
 ```bash
 npm install
 npm start          # http://localhost:3000
 # or with auto-restart on changes:
 npm run dev
+```
+
+### Docker
+
+```bash
+cp .env.example .env   # adjust variables if needed
+docker compose up --build
+```
+
+The app will be available at `http://localhost:${APP_PORT}` (default `3000`).
+
+To expose on a different host port without touching `PORT` inside the container:
+
+```bash
+APP_PORT=8080 docker compose up
 ```
 
 ## Endpoint
@@ -68,11 +85,14 @@ Liveness probe: `{ "status": "ok" }`.
 
 | Variable | Default | Purpose |
 |----------|---------|---------|
-| `PORT` | `3000` | HTTP server port |
+| `APP_PORT` | `3000` | Host port mapped by Docker (docker compose only) |
+| `PORT` | `3000` | HTTP server port (inside the container or local) |
 | `HOST` | `0.0.0.0` | bind address |
 | `ROBONOMICS_WS` | `wss://polkadot.rpc.robonomics.network/` | Robonomics RPC |
 | `ASSET_HUB_WS` | `wss://polkadot-asset-hub-rpc.polkadot.io` | Asset Hub RPC |
-| `CACHE_TTL_MS` | `10000` | response cache TTL |
+| `CACHE_TTL_MS` | `10000` | response cache TTL (ms) |
+
+Copy `.env.example` to `.env` and edit as needed. All variables are optional — defaults work out of the box.
 
 ## Structure
 
